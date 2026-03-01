@@ -19,7 +19,6 @@ def get_latest_artifacts_for_repo(repo):
             "--json", "databaseId,name,status,conclusion,workflowDatabaseId"
         ]
         result = subprocess.run(runs_cmd, capture_output=True, text=True, check=True, env=os.environ.copy())
-        print(f"gh run list output for {repo}: {result.stdout[:200]}...")
         runs = json.loads(result.stdout)
         
         # Group by workflow to get latest successful for each
