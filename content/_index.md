@@ -14,6 +14,8 @@ I build **reliable, cloud-native backend systems** and I’m currently focused o
 👉 [About me →](/profile/about/)  
 👉 [Professional experience →](/profile/experience/)
 
+📧 **Email:** [jbelborja@gmail.com](mailto:jbelborja@gmail.com)
+
 ### Latest Build Artifacts 📦
 {{< build_artifacts >}}
 
