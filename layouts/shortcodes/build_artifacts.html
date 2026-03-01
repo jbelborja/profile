@@ -1,0 +1,73 @@
+<div class="artifacts-list">
+  {{ range $repo, $artifacts := .Site.Data.artifacts }}
+  <div class="repo-artifacts">
+    <h4>{{ $repo | humanize }}</h4>
+
+    {{ $mobile := slice }}
+    {{ $desktop := slice }}
+
+    {{ range $artifacts }}
+    {{ if or (findRE "android|apk|iphone|ios|ipa" (lower .name)) }}
+    {{ $mobile = $mobile | append . }}
+    {{ else }}
+    {{ $desktop = $desktop | append . }}
+    {{ end }}
+    {{ end }}
+
+    {{ if $mobile }}
+    <div class="artifact-group mobile">
+      <h5>Mobile Builds (Recommended)</h5>
+      <ul>
+        {{ range $mobile }}
+        <li>
+          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="btn-download">{{ .name }}</a>
+          <span class="artifact-meta">({{ div .size 1048576 }} MB)</span>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ if $desktop }}
+    <div class="artifact-group desktop">
+      <h5>Desktop Builds</h5>
+      <ul>
+        {{ range $desktop }}
+        <li>
+          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+          <span class="artifact-meta">({{ div .size 1048576 }} MB)</span>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+
+<style>
+  .artifacts-list {
+    margin-top: 1rem;
+    text-align: left;
+  }
+
+  .repo-artifacts h4 {
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+  }
+
+  .repo-artifacts ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .repo-artifacts li {
+    margin-bottom: 0.25rem;
+  }
+
+  .artifact-meta {
+    font-size: 0.8rem;
+    color: var(--secondary);
+    margin-left: 0.5rem;
+  }
+</style>

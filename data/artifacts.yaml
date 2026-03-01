@@ -1,0 +1,22 @@
+english-verbs-app:
+- created_at: '2026-02-17T16:36:09Z'
+  name: app-release
+  size: 16605613
+  url: https://github.com/jbelborja/english-verbs-app/actions/runs/22106095422/artifacts/5542222390
+multiply-tables-app:
+- created_at: '2026-02-26T22:24:29Z'
+  name: multitable-hero-macos
+  size: 11094677
+  url: https://github.com/jbelborja/multiply-tables-app/actions/runs/22463646622/artifacts/5681293456
+- created_at: '2026-02-26T22:29:17Z'
+  name: multitable-hero-linux
+  size: 92764864
+  url: https://github.com/jbelborja/multiply-tables-app/actions/runs/22463646622/artifacts/5681361001
+- created_at: '2026-02-26T22:32:04Z'
+  name: multitable-hero-windows
+  size: 10674526
+  url: https://github.com/jbelborja/multiply-tables-app/actions/runs/22463646622/artifacts/5681397619
+- created_at: '2026-02-26T22:41:27Z'
+  name: MultiTableHero-Android-APK
+  size: 16604991
+  url: https://github.com/jbelborja/multiply-tables-app/actions/runs/22463645416/artifacts/5681518054

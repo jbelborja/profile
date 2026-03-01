@@ -17,5 +17,5 @@ Outside of day-to-day engineering, I enjoy evolving engineering practices, mento
 ---
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/jbelborja)
-- 💻 [GitHub](https://github.com/jbelborja17)
+- 💻 [GitHub](https://github.com/jbelborja)
 

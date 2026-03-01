@@ -1,4 +1,4 @@
-baseURL = "https://jbelborja17.github.io/profile/"
+baseURL = "https://jbelborja.github.io/profile/"
 languageCode = "en"
 title = "Javier Bel"
 theme = "PaperMod"
@@ -17,12 +17,13 @@ enableRobotsTXT = true
     url = "/experience/"
     weight = 20
 
-[params]
-  mainSections = []
-  defaultTheme = "light"
-  disableThemeToggle = false
-  showReadingTime = false
-  showPostNavLinks = false
-  showCodeCopyButtons = true
+[params.profileMode]
+  enabled = true
+  title = "Javier Bel"
+  subtitle = "Senior Software Engineer"
+  imageUrl = "/profile/images/avatar.png"
+  imageWidth = 120
+  imageHeight = 120
+  imageDisplayKind = "circle"
 
 
