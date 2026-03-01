@@ -26,4 +26,16 @@ enableRobotsTXT = true
   imageHeight = 120
   imageDisplayKind = "circle"
 
+[[params.socialIcons]]
+  name = "email"
+  url = "mailto:jbelborja@gmail.com"
+
+[[params.socialIcons]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/jbelborja"
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/jbelborja"
+
 
