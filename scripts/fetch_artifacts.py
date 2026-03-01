@@ -48,8 +48,12 @@ def get_latest_artifacts_for_repo(repo):
                         "created_at": art["created_at"]
                     })
         return all_artifacts
-    except Exception as e:
+    except subprocess.CalledProcessError as e:
         print(f"Error fetching artifacts for {repo}: {e}")
+        print(f"Stderr: {e.stderr}")
+        return []
+    except Exception as e:
+        print(f"Unexpected error for {repo}: {e}")
         return []
 
 def main():
