@@ -1,0 +1,82 @@
+{{ define "main" }}
+<section class="profile-hero">
+  <div class="profile-header">
+    {{- with .Site.Params.avatar }}
+    <div class="profile-avatar-wrapper">
+      <img class="profile-avatar" src="{{ . | relURL }}" alt="{{ $.Site.Params.author | default "Avatar" }}" width="120" height="120">
+    </div>
+    {{- end }}
+
+    <div class="profile-title-group">
+      <h1>{{ .Site.Params.author | default .Site.Title }}</h1>
+      <div class="role-badge">
+        <span class="brand-indicator" aria-hidden="true"></span>
+        <span>{{ .Site.Params.role | default "Senior Software Engineer" }}</span>
+      </div>
+      <p class="profile-bio">{{ .Site.Params.bio }}</p>
+    </div>
+  </div>
+
+  <div class="skill-pills">
+    <span class="skill-pill">🧠 Backend & Platform Engineering</span>
+    <span class="skill-pill">☁️ AWS Cloud-Native</span>
+    <span class="skill-pill">🔁 Distributed Workflows (Temporal)</span>
+    <span class="skill-pill">☕ JVM • Kotlin • Java</span>
+    <span class="skill-pill">🤖 AI-Assisted SDLC</span>
+  </div>
+
+  <div class="profile-actions">
+    <a href="{{ "experience/" | relURL }}" class="btn btn-primary">
+      <span>View Experience</span>
+      <span aria-hidden="true">→</span>
+    </a>
+    <a href="{{ "about/" | relURL }}" class="btn btn-secondary">About Me</a>
+    {{ partial "social_icons.html" . }}
+  </div>
+</section>
+
+<!-- Featured Recent Experience -->
+{{- $experiences := where .Site.RegularPages "Section" "experience" -}}
+{{- if $experiences }}
+<section style="margin-bottom: 3.5rem;">
+  <div class="section-title">
+    <span>Recent Experience</span>
+    <a href="{{ "experience/" | relURL }}" class="section-link">View all roles →</a>
+  </div>
+  <div class="timeline">
+    {{ range first 2 (sort $experiences "Date" "desc") }}
+    <article class="experience-card">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        {{ with .Date }}
+        <span class="card-date">{{ .Format "Jan 2006" }}</span>
+        {{ end }}
+      </div>
+      {{ with .Summary }}
+      <p class="card-summary">{{ . }}</p>
+      {{ end }}
+      {{ with .Params.tags }}
+      <div class="card-tags">
+        {{ range . }}
+        <span class="tag-badge">{{ . }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{- end }}
+
+<!-- Main Content (e.g. Build Artifacts) -->
+{{ with .Content }}
+<section>
+  <div class="article-body">
+    {{ . }}
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

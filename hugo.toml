@@ -1,41 +1,42 @@
 baseURL = "https://jbelborja.github.io/profile/"
 languageCode = "en"
 title = "Javier Bel"
-theme = "PaperMod"
 enableRobotsTXT = true
 
+[params]
+  author = "Javier Bel"
+  role = "Senior Software Engineer"
+  description = "Senior Software Engineer specialized in backend systems, cloud-native architectures, distributed workflows, and AI-assisted SDLC."
+  avatar = "images/avatar.png"
+  bio = "I design and build reliable, high-scale backend systems, cloud-native architectures, and distributed workflows, with a strong focus on modern engineering practices and AI adoption across the SDLC."
+  github = "https://github.com/jbelborja"
+  linkedin = "https://www.linkedin.com/in/jbelborja"
+  email = "mailto:jbelborja@gmail.com"
+
 [menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+
   [[menu.main]]
     identifier = "about"
     name = "About"
     url = "/about/"
-    weight = 10
+    weight = 20
 
   [[menu.main]]
     identifier = "experience"
     name = "Experience"
     url = "/experience/"
-    weight = 20
+    weight = 30
 
-[params.profileMode]
-  enabled = true
-  title = "Javier Bel"
-  subtitle = "Senior Software Engineer"
-  imageUrl = "/profile/images/avatar.png"
-  imageWidth = 120
-  imageHeight = 120
-  imageDisplayKind = "circle"
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 40
 
-[[params.socialIcons]]
-  name = "email"
-  url = "mailto:jbelborja@gmail.com"
-
-[[params.socialIcons]]
-  name = "linkedin"
-  url = "https://www.linkedin.com/in/jbelborja"
-
-[[params.socialIcons]]
-  name = "github"
-  url = "https://github.com/jbelborja"
 
 

@@ -1,0 +1,83 @@
+{{ define "main" }}
+<div class="content-wrapper">
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="profile-bio">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{ with .Content }}
+  <div class="article-body" style="margin-bottom: 2rem;">
+    {{ . }}
+  </div>
+  {{ end }}
+
+  {{ if eq .Section "experience" }}
+  <div class="timeline">
+    {{ range .Pages.ByDate.Reverse }}
+    <article class="experience-card">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        {{ with .Date }}
+        <span class="card-date">{{ .Format "Jan 2006" }}</span>
+        {{ end }}
+      </div>
+
+      {{ with .Summary }}
+      <p class="card-summary">{{ . }}</p>
+      {{ end }}
+
+      {{ with .Params.tags }}
+      <div class="card-tags">
+        {{ range . }}
+        <span class="tag-badge">{{ . }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+  {{ else if eq .Section "posts" }}
+    {{ if .Pages }}
+    <div class="post-list">
+      {{ range .Pages.ByDate.Reverse }}
+      <article class="post-item">
+        <h2 class="post-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        <div class="post-date">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          <span>•</span>
+          <span>{{ .ReadingTime }} min read</span>
+        </div>
+        {{ with .Summary }}
+        <p class="card-summary" style="margin-top: 0.5rem; margin-bottom: 0;">{{ . }}</p>
+        {{ end }}
+      </article>
+      {{ end }}
+    </div>
+    {{ end }}
+  {{ else }}
+    {{ if .Pages }}
+    <div class="post-list">
+      {{ range .Pages.ByDate.Reverse }}
+      <article class="post-item">
+        <h2 class="post-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        <div class="post-date">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        </div>
+        {{ with .Summary }}
+        <p class="card-summary" style="margin-top: 0.5rem; margin-bottom: 0;">{{ . }}</p>
+        {{ end }}
+      </article>
+      {{ end }}
+    </div>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}

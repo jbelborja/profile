@@ -1,0 +1,39 @@
+{{ define "main" }}
+<div class="content-wrapper">
+  <div style="margin-bottom: 1.5rem;">
+    {{ if eq .Section "experience" }}
+    <a href="{{ "experience/" | relURL }}" style="font-size: 0.9rem; font-weight: 500;">← Back to Experience</a>
+    {{ else if eq .Section "posts" }}
+    <a href="{{ "posts/" | relURL }}" style="font-size: 0.9rem; font-weight: 500;">← Back to Posts</a>
+    {{ else }}
+    <a href="{{ site.BaseURL }}" style="font-size: 0.9rem; font-weight: 500;">← Back to Home</a>
+    {{ end }}
+  </div>
+
+  <article>
+    <header class="article-header">
+      <h1>{{ .Title }}</h1>
+      <div class="article-meta">
+        {{ with .Date }}
+        <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "January 2006" }}</time>
+        {{ end }}
+        {{ if eq .Section "posts" }}
+        <span>•</span>
+        <span>{{ .ReadingTime }} min read</span>
+        {{ end }}
+      </div>
+      {{ with .Params.tags }}
+      <div class="card-tags" style="margin-top: 1rem;">
+        {{ range . }}
+        <span class="tag-badge">{{ . }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
+    </header>
+
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+  </article>
+</div>
+{{ end }}
