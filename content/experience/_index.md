@@ -1,7 +1,7 @@
 ---
 title: "Professional Experience"
 description: "Engineering leadership, backend and platform engineering, and cloud-native systems."
-_build:
+build:
   list: never
   render: always
 ---
