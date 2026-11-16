@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@import "./main.css" layer(components);
+
+@source "../../layouts";
+@source "../../content";

@@ -31,12 +31,3 @@ enableRobotsTXT = true
     name = "Experience"
     url = "/experience/"
     weight = 30
-
-  [[menu.main]]
-    identifier = "posts"
-    name = "Posts"
-    url = "/posts/"
-    weight = 40
-
-
-

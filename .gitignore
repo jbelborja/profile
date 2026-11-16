@@ -1,6 +1,6 @@
 /public
 /resources
+/node_modules/
+assets/css/tailwind.generated.css
 .idea/
 .hugo_build.lock
-
-

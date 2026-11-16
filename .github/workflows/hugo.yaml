@@ -18,19 +18,20 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.146.2'
           extended: true
 
-      - name: Install dependencies
-        run: pip install PyYAML
-
-      - name: Fetch latest artifacts
-        run: python3 scripts/fetch_artifacts.py
-        env:
-          GH_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+      - name: Build Tailwind CSS
+        run: npm ci && npm run build:css
 
       - name: Build
         run: hugo --minify
@@ -40,4 +41,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-
